@@ -2,6 +2,7 @@ import numpy as np
 
 A = np.random.rand(3,3)
 b = np.random.rand(3)
+print(A,b)
 
 def Jacobi(A, b):
     print(A)

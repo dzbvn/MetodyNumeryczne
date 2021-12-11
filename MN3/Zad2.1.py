@@ -66,16 +66,16 @@ def brents(f, a, b, tolerance, maxIterations, counter):
     while counter < maxIterations and np.abs(b - a) > tolerance:
         #if f(x) == 0 or np.abs(f(x)) < tolerance or f(x) == 0:
             #return x, counter
-        if f(a) != f(c) and f(c) != f(b):
-            x1 = (a * f(b) * f(c)) / ((f(a) - f(b)) * (f(a) - f(c)))
-            x2 = (b * f(a) * f(c)) / ((f(b) - f(a)) * (f(b) - f(c)))
-            x3 = (c * f(a) * f(b)) / ((f(c) - f(a)) * (f(c) - f(b)))
-            x = x1 + x2 + x3
+        if f(a) != f(c) and f(c) != f(b):                               #}
+            x1 = (a * f(b) * f(c)) / ((f(a) - f(b)) * (f(a) - f(c)))    #}
+            x2 = (b * f(a) * f(c)) / ((f(b) - f(a)) * (f(b) - f(c)))    #} odwrotna interpolacja kwadratowa
+            x3 = (c * f(a) * f(b)) / ((f(c) - f(a)) * (f(c) - f(b)))    #}
+            x = x1 + x2 + x3                                            #}
         else:
-            x = b - (f(b) * ((b - a) / (f(b) - f(a))))
+            x = b - (f(b) * ((b - a) / (f(b) - f(a))))                  # metoda siecznych
         if (x < ((3 * a + b) / 4) or (x > b)) or (flag and np.abs(x - b) >= (np.abs(b - c)/2)) or (not flag and np.abs(x - b) >= (np.abs(c - d)/2)) or (flag and np.abs(b - c) < (np.abs(tolerance))) or (not flag and np.abs(c - d) >= np.abs(tolerance)):
-            x = (a + b) / 2
-            flag = True
+            x = (a + b) / 2                                             #}metoda bisekcji
+            flag = True                                                 #}
         else:
             flag = False
 
