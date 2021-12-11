@@ -129,5 +129,10 @@ def omegaTest(A, b):
 
 spectralRadius, omega = omegaTest(A3, b3)
 plt.plot(omega, spectralRadius)
+plt.ylabel("ρ(T)")
+plt.xlabel("ω")
 plt.ylim([0.4, 1])  # Przedział dla y taki jak na slajdzie z wykładu
 plt.show()
+
+#Wniosek: najlepsza omega (1.24) jest bardzo dobrze widoczna na wykresie, widać analogię
+#do przykładu opisanego na wykładzie
